@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetLab – Кондитерська фабрика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="SweetLab">
+            </a>
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#about">Про нас</a></li>
+                    <li><a href="#products">Продукція</a></li>
+                    <li><a href="#contacts">Контакти</a></li>
+                </ul>
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Кошик (спливаюче вікно) -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <span class="close-cart">&times;</span>
+            <h2>Ваше замовлення</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Тут будуть товари -->
+            </div>
+            <div class="cart-total">
+                <span>Всього:</span>
+                <span id="cart-total-price">0 грн</span>
+            </div>
+            <button class="btn checkout-btn">Оформити замовлення</button>
+        </div>
+    </div>
+
+    <!-- Форма замовлення -->
+    <div class="order-form-modal" id="order-form-modal">
+        <div class="order-form-content">
+            <span class="close-order-form">&times;</span>
+            <h2>Оформлення замовлення</h2>
+            <form id="order-form" action="https://formsubmit.co/info.Sweet.Lab.ua@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Нове замовлення з SweetLab">
+                <input type="hidden" name="_template" value="table">
+                <div class="form-group">
+                    <label for="name">Ім'я</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адреса доставки</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="message">Коментар (необов'язково)</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <div id="order-items-summary"></div>
+                <button type="submit" class="btn">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Головна сторінка -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Солодощі, які роблять світ кращим!</h1>
+            <p>Спробуйте наші десерти без цукру та лактози.</p>
+            <a href="#about" class="btn">Дізнатися більше</a>
+        </div>
+    </section>
+
+    <!-- Про нас -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Про нас</h2>
+            <p>Ми – кондитерська фабрика SweetLab, яка створює смачні та корисні солодощі. Наші десерти не містять шкідливих добавок і підходять навіть для дієтичного харчування.</p>
+            <div class="about-features">
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Натуральні інгредієнти</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Без штучних добавок</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <h3>Висока якість</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Продукція -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2>Наша продукція</h2>
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">Усе</button>
+                <button class="category-btn" data-category="lactose-free">Без лактози</button>
+                <button class="category-btn" data-category="sugar-free">Без цукру</button>
+                <button class="category-btn" data-category="sets">Набори</button>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Товари додаються через JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакти -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2>Контакти</h2>
+            <div class="contact-info">
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <p>info.Sweet.Lab.ua@gmail.com</p>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <p>+380 12 345 6789</p>
+                </div>
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>м. Київ, вул. Кондитерська, 123</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Підвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="logo.png" alt="SweetLab">
+            </div>
+            <div class="footer-contacts">
+                <h3>Контакти</h3>
+                <p>Email: info.Sweet.Lab.ua@gmail.com</p>
+                <p>Телефон: +380 12 345 6789</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sweet.lab.ua?igsh=MTl6amZxc25keXVhOA%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 SweetLab. Усі права не захищені.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
